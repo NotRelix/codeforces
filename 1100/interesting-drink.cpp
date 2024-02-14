@@ -26,30 +26,22 @@ int main()
         cin >> temp;
         while (left <= right)
         {
-            // cout << left << '-' << mid << '-' << right << ' ';
-            mid = left + (right - left) / 2;
-            if (temp < x[mid])
+            mid = (left + right) / 2;
+            if (right - left < 1)
+                break;
+            else if (temp < x[mid])
             {
                 right = mid - 1;
             }
-            else if (temp > x[mid])
+            else
             {
                 left = mid + 1;
             }
-            else
-            {
-                // cout << mid << '\n';
-                break;
-            }
         }
-        
-        if (i == 0 && mid == 475)
+        if (temp >= x[left + 1])
         {
-            cout << "475" << '\n';
-        } 
-        else
-        {
-            (x[mid] > temp) ? cout << mid << '\n' : cout << mid + 1 << '\n';
+            left++;
         }
+        (x[mid] > temp) ? cout << mid << '\n' : cout << mid + 1 << '\n';
     }
 }
